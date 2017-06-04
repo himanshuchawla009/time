@@ -6,7 +6,7 @@ module.exports = function(app) {
     var day,year,month;
 
     app.get('/:query', function(req, res) {
-var paramDate=new Date(req.params.query)
+var paramDate=req.params.query
  
  
  
@@ -41,7 +41,9 @@ var paramDate=new Date(req.params.query)
 //return null if date is invalid
 
 function dateToNatural(pdat){
+    
   var pdate=pdat.toString();
+
   
 
  var date=validator.toDate(pdate)
@@ -57,11 +59,13 @@ var u=daToUnix(pdate)
 return ndate + '_' + u;
  }
  else{
-   var udate=unixToDa(pdate)
+
+     
+   var udate=unixToDa(pdat)
    
    var validate=validator.toDate(udate)
    if(validate != null){
-     var unix=pdate
+     var unix=pdat
      
      
      
@@ -70,9 +74,9 @@ else{
   return 'invalid datee'
   
 }
-return udate + '-' + unix;
+return udate + '_' + unix;
  }
- return 'invalid dateee'
+
 
 
 }
@@ -81,16 +85,16 @@ function unixToDa(unixtime){
   var uToD =new Date(unixtime * 1000)
   
   
-  console.log(uToD)
+  
   var str=uToD.toGMTString()
+
   
-  var dd=str.split(' ')
-  var formatted=dd[1] + ' ' + dd[2] +','+dd[3]
   
-  var gmtDate=new Date(formatted)
+  
+  var gmtDate=new Date(str)
   
   var d=convertToNatural(gmtDate)
-  console.log(d)  ;
+  
   return d;
 
 
