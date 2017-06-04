@@ -13,7 +13,7 @@ var paramDate=new Date(req.params.query)
  var newd=dateToNatural(paramDate);
  
  
- var arrayDate=newd.split('-')
+ var arrayDate=newd.split('_')
  var naturalDate=arrayDate[0];
  
  var unix=arrayDate[1];
@@ -54,7 +54,7 @@ var u=daToUnix(pdate)
 
 
 
-return ndate + '-' + u;
+return ndate + '_' + u;
  }
  else{
    var udate=unixToDa(pdate)
