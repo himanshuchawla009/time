@@ -1,0 +1,16 @@
+{
+  "name": "himanshu",
+  "version": "0.0.1",
+  "description": "date conversion from unix to natural and vice versa",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "himanshu",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3",
+    "moment": "^2.18.1",
+    "ejs": "^2.5.6"
+  }
+}
